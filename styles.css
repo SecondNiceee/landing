@@ -1,115 +1,215 @@
+/* Шрифты */
 @font-face {
     font-family: 'Halvar Mittelschrift';
     src: url('/assets/HalvarMittel-BlkSlanted.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
   }
-
-
+  
+  /* Запрет выделения */
   body {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+/Edge */
-    user-select: none;         /* Стандартный синтаксис */
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    max-height: 100vh;
+    position: relative;
   }
-.main-text{
+  
+  /* Фон (picture занимает весь экран) */
+  .full-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+  
+  .full-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Основной контент */
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+  }
+  
+  /* Логотип */
+  .logo-container {
+    margin-top: 48px;
+    text-align: center;
+  }
+  
+  @media (min-width: 640px) {
+    .logo-container {
+      margin-top: 0;
+      margin-bottom: auto;
+      margin-top: auto;
+    }
+  }
+  
+  .logo-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Текст и заголовок */
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px;
+  }
+  
+  @media (min-width: 640px) {
+    .text-section {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+  
+  .main-text {
     color: #F6F6F6;
     text-align: center;
     text-shadow: -1px 0 8px rgba(255, 255, 255, 0.21);
     font-family: "Inter", sans-serif;
     font-size: 48px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-.main-title{
+    margin: 0;
+  }
+  
+  .main-text:first-child {
+    margin-bottom: -8px;
+  }
+  
+  .main-text:last-child {
+    margin-top: -8px;
+  }
+  
+  @media (min-width: 640px) {
+    .main-text:first-child {
+      margin-bottom: -16px;
+    }
+    .main-text:last-child {
+      margin-top: -16px;
+    }
+  }
+  
+  .main-title {
     color: #F6F6F6;
     text-align: center;
     text-shadow: -1px 0 16px rgba(255, 255, 255, 0.21);
     font-family: "Halvar Mittelschrift";
     font-size: 160px;
-    font-style: normal;
     font-weight: 900;
     line-height: normal;
     letter-spacing: -3.2px;
     text-transform: uppercase;
-}
-.button-text{
-    color: #FFF;
-    font-family: "Inter", sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.timer-text{
-    color: #C6C6C6;
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.button {
-    /* Размеры и отступы */
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 60px;
-    padding-right: 60px;
-    border-radius: 8px;
+    margin: 0;
+  }
   
-    /* Фон */
+  /* Нижний блок (кнопка + таймер) */
+  .bottom-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 216px;
+  }
+  
+  @media (min-width: 640px) {
+    .bottom-block {
+      margin-top: unset;
+      margin-bottom: 30px;
+      gap: 31px;
+    }
+  }
+  
+  /* Кнопка */
+  .button {
+    display: inline-block;
+    padding: 12px 60px;
+    border-radius: 8px;
     background-color: #EF0219;
     background-image: linear-gradient(90deg, #EF0219, #FF5969, #EF0219);
     background-size: 200% 100%;
     background-position: -100% 0;
     background-repeat: no-repeat;
-  
-    /* Текст */
     color: white;
-    border: none;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
     cursor: pointer;
-    font-size: inherit; /* или задай явно, например 18px */
-    font-weight: bold;
-  
-    /* Анимация */
     transition: background-position 0.6s ease;
-  }
-
-  .button:active {
-    background-image: none;       /* убираем градиент */
-    background-color: #D20014;    /* задаём нужный цвет */
+    border: none;
   }
   
-  /* Адаптив: увеличиваем отступы на sm+ (обычно от 640px) */
-  @media (min-width: 640px) {
-    .button {
-      padding-top: 24px;
-      padding-bottom: 24px;
-      padding-left: 120px;
-      padding-right: 120px;
-    }
-  }
-  
-  /* Эффект при наведении */
   .button:hover {
     background-position: 100% 0;
   }
-
-@media (max-width:640px) {
-    .main-title{
-        font-size: 80px;
-    }   
-    .main-text{
-        font-size: 24px;
+  
+  .button:active {
+    background-image: none;
+    background-color: #D20014;
+  }
+  
+  @media (min-width: 640px) {
+    .button {
+      padding: 24px 120px;
     }
-    .button-text{
-        font-size: 16px;
+  }
+  
+  /* Таймер */
+  .timer-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .timer-text {
+    color: #C6C6C6;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+  }
+  
+  /* Адаптив для мобильных */
+  @media (max-width: 640px) {
+    .main-title {
+      font-size: 80px;
     }
-    .timer-text{
-        font-size: 16px;
-        line-height: unset;
+    .main-text {
+      font-size: 24px;
     }
-}
+    .button {
+      font-size: 16px;
+      padding: 8px 30px;
+    }
+    .timer-text {
+      font-size: 16px;
+      line-height: normal;
+    }
+    .bottom-block {
+      gap: 12px;
+    }
+  }

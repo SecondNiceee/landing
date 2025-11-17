@@ -1,101 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/output.css">
-    <title>LEON</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <title>LEON</title>
 </head>
-<body class="relative max-h-screen overflow-hidden">
-    <picture class="absolute w-full h-full left-0 top-0 min-h-screen">
-        <!-- Для мобильных (маленьких экранов) -->
-        <source class="w-full h-full" media="(max-width: 767px)" srcset="/images/bg_mob.png" />
-      
-        <!-- Для планшетов -->
-        <source class="w-full h-full" media="(min-width: 768px) and (max-width: 1023px)" srcset="/images/bg_tablet.png" />
-      
-        <!-- Для десктопов (по умолчанию) -->
-        <source class="w-full h-full" media="(min-width: 1024px)" srcset="/images/bg_desk.png" />
-      
-        <!-- Fallback для старых браузеров -->
-        <img
-          src="/images/bg_desk.png"
-          class="h-full w-full object-cover"
-          alt="Фон страницы"
-        />
+<body>
+  <!-- Фон -->
+  <div class="full-bg">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/images/bg_mob.png" />
+      <source media="(min-width: 768px) and (max-width: 1023px)" srcset="/images/bg_tablet.png" />
+      <source media="(min-width: 1024px)" srcset="/images/bg_desk.png" />
+      <img src="/images/bg_desk.png" alt="Фон страницы" />
+    </picture>
+  </div>
+
+  <!-- Основной контент -->
+  <section class="page-content">
+    <!-- Логотип -->
+    <div class="logo-container">
+      <picture>
+        <source media="(max-width: 639px)" srcset="/images/logo_mob.svg" type="image/svg+xml" />
+        <source media="(min-width: 640px)" srcset="/images/logo_desk.png" type="image/png" />
+        <img src="/images/logo_desk.png" alt="LEON" />
       </picture>
+    </div>
 
+    <!-- Заголовок и текст -->
+    <div class="text-section">
+      <p class="main-text">Cтраховка до</p>
+      <h1 class="main-title">25 000 ₽</h1>
+      <p class="main-text">фрибетами</p>
+    </div>
 
-    <section class="flex flex-col max-h-screen h-screen overflow-hidden">
+    <!-- Кнопка и таймер -->
+    <div class="bottom-block">
+      <a class="button" href="https://sortthingsout.pro/r8ZRD3" target="_blank" rel="noopener noreferrer">
+        <span class="button-text">Забрать</span>
+      </a>
+      <div class="timer-container">
+        <img src="images/icon_desk.svg" alt="Timer" />
+        <p id="countdown-timer" class="timer-text">1:13:41</p>
+      </div>
+    </div>
+  </section>
 
-        <picture class="relative mx-auto mt-[48px] z-[20]">
-            <!-- Мобильная версия (до 767px) -->
-            <source media="(max-width: 640px)" srcset="/images/logo_mob.svg" type="image/svg+xml" />
-          
-            <!-- Десктопная версия (по умолчанию, от 768px) -->
-            <source media="(min-width: 640px)" srcset="/images/logo_desk.png" type="image/png" />
-          
-            <!-- Fallback для старых браузеров -->
-            <img src="/images/logo_desk.png" alt="LEON" />
-          </picture>
-    
-        <div class="flex mt-[64px] relative z-[20] sm:mt-auto sm:mb-auto flex-col items-center">
-            <p class="main-text mb-[-8px] sm:mb-[-16px]">
-                Cтраховка до
-            </p>
-            <h1 class="main-title">25 000 ₽</h1>
-            <p class="main-text mt-[-8px] sm:mt-[-16px]">фрибетами</p>
-        </div>
-    
-        <div class="bottom-blok relative mt-[216px] sm:mt-[unset] sm:mb-[30px] z-[20] flex items-center flex-col gap-[16px] sm:gap-[31px]">
-            <a class="button" href="https://sortthingsout.pro/r8ZRD3">
-                <p class="button-text">Забрать</p>
-            </a>   
-            <div class="flex items gap-4">
-                <img src="images/icon_desk.svg" alt="Timer">
-                <p id="countdown-timer" class="timer-text">1:13:41</p   >
-            </div>
-        </div>
-    </section>
-
-
-
-    <script>
-        // Начальное время: 1 час 13 минут 41 секунда → в секундах
-        let totalSeconds = 1 * 3600 + 13 * 60 + 41; // = 4421 секунд
-      
-        function formatTime(seconds) {
-          const hrs = Math.floor(seconds / 3600);
-          const mins = Math.floor((seconds % 3600) / 60);
-          const secs = seconds % 60;
-          return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-      
-        function updateTimer() {
-          if (totalSeconds <= 0) {
-            document.getElementById('countdown-timer').textContent = '0:00:00';
-            return;
-          }
-      
-          document.getElementById('countdown-timer').textContent = formatTime(totalSeconds);
-          totalSeconds--;
-        }
-      
-        // Обновляем сразу при загрузке
-        updateTimer();
-      
-        // Запускаем таймер каждую секунду
-        const countdownInterval = setInterval(() => {
-          updateTimer();
-          if (totalSeconds < 0) {
-            clearInterval(countdownInterval);
-          }
-        }, 1000);
-      </script>
+  <!-- Таймер JS (остаётся без изменений) -->
+  <script>
+    let totalSeconds = 1 * 3600 + 13 * 60 + 41;
+    function formatTime(seconds) {
+      const hrs = Math.floor(seconds / 3600);
+      const mins = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    function updateTimer() {
+      if (totalSeconds <= 0) {
+        document.getElementById('countdown-timer').textContent = '0:00:00';
+        return;
+      }
+      document.getElementById('countdown-timer').textContent = formatTime(totalSeconds);
+      totalSeconds--;
+    }
+    updateTimer();
+    const countdownInterval = setInterval(() => {
+      updateTimer();
+      if (totalSeconds < 0) clearInterval(countdownInterval);
+    }, 1000);
+  </script>
 </body>
 </html>
