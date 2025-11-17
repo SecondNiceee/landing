@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Halvar Mittelschrift';
+    src: url('/assets/HalvarMittel-BlkSlanted.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+.main-text{
+    color: #F6F6F6;
+    text-align: center;
+    text-shadow: -1px 0 8px rgba(255, 255, 255, 0.21);
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.main-title{
+    color: #F6F6F6;
+    text-align: center;
+    text-shadow: -1px 0 16px rgba(255, 255, 255, 0.21);
+    font-family: "Halvar Mittelschrift";
+    font-size: 160px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -3.2px;
+    text-transform: uppercase;
+}
+.button-text{
+    color: #FFF;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.timer-text{
+    color: #C6C6C6;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.button {
+    /* Размеры и отступы */
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 8px;
+  
+    /* Фон */
+    background-color: #EF0219;
+    background-image: linear-gradient(90deg, #EF0219, #FF5969, #EF0219);
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    background-repeat: no-repeat;
+  
+    /* Текст */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: inherit; /* или задай явно, например 18px */
+    font-weight: bold;
+  
+    /* Анимация */
+    transition: background-position 0.6s ease;
+  }
+
+  .button:active {
+    background-image: none;       /* убираем градиент */
+    background-color: #D20014;    /* задаём нужный цвет */
+  }
+  
+  /* Адаптив: увеличиваем отступы на sm+ (обычно от 640px) */
+  @media (min-width: 640px) {
+    .button {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      padding-left: 120px;
+      padding-right: 120px;
+    }
+  }
+  
+  /* Эффект при наведении */
+  .button:hover {
+    background-position: 100% 0;
+  }
+
+@media (max-width:640px) {
+    .main-title{
+        font-size: 80px;
+    }   
+    .main-text{
+        font-size: 24px;
+    }
+    .button-text{
+        font-size: 16px;
+    }
+    .timer-text{
+        font-size: 16px;
+        line-height: unset;
+    }
+}
