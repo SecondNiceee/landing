@@ -13,17 +13,17 @@
 <body class="relative max-h-screen overflow-hidden">
     <picture class="absolute w-full h-full left-0 top-0 min-h-screen">
         <!-- Для мобильных (маленьких экранов) -->
-        <source media="(max-width: 767px)" srcset="/public/bg_mob.png" />
+        <source media="(max-width: 767px)" srcset="/images/bg_mob.png" />
       
         <!-- Для планшетов -->
-        <source media="(min-width: 768px) and (max-width: 1023px)" srcset="/public/bg_tablet.png" />
+        <source media="(min-width: 768px) and (max-width: 1023px)" srcset="/images/bg_tablet.png" />
       
         <!-- Для десктопов (по умолчанию) -->
-        <source media="(min-width: 1024px)" srcset="/public/bg_desk.png" />
+        <source media="(min-width: 1024px)" srcset="/images/bg_desk.png" />
       
         <!-- Fallback для старых браузеров -->
         <img
-          src="/public/bg_desk.png"
+          src="/images/bg_desk.png"
           class="h-full w-full object-cover"
           alt="Фон страницы"
         />
@@ -34,13 +34,13 @@
 
         <picture class="relative mx-auto mt-[48px] z-[20]">
             <!-- Мобильная версия (до 767px) -->
-            <source media="(max-width: 640px)" srcset="/public/logo_mob.svg" type="image/svg+xml" />
+            <source media="(max-width: 640px)" srcset="/images/logo_mob.svg" type="image/svg+xml" />
           
             <!-- Десктопная версия (по умолчанию, от 768px) -->
-            <source media="(min-width: 640px)" srcset="/public/logo_desk.png" type="image/png" />
+            <source media="(min-width: 640px)" srcset="/images/logo_desk.png" type="image/png" />
           
             <!-- Fallback для старых браузеров -->
-            <img src="/public/logo_desk.png" alt="LEON" />
+            <img src="/images/logo_desk.png" alt="LEON" />
           </picture>
     
         <div class="flex mt-[64px] relative z-[20] sm:mt-auto sm:mb-auto flex-col items-center">
@@ -56,7 +56,7 @@
                 <p class="button-text">Забрать</p>
             </button>   
             <div class="flex items gap-4">
-                <img src="public/icon_desk.svg" alt="Timer">
+                <img src="images/icon_desk.svg" alt="Timer">
                 <p class="timer-text">1:13:41</p>
             </div>
         </div>
