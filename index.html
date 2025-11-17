@@ -13,13 +13,13 @@
 <body class="relative max-h-screen overflow-hidden">
     <picture class="absolute w-full h-full left-0 top-0 min-h-screen">
         <!-- Для мобильных (маленьких экранов) -->
-        <source media="(max-width: 767px)" srcset="/images/bg_mob.png" />
+        <source class="w-full h-full" media="(max-width: 767px)" srcset="/images/bg_mob.png" />
       
         <!-- Для планшетов -->
-        <source media="(min-width: 768px) and (max-width: 1023px)" srcset="/images/bg_tablet.png" />
+        <source class="w-full h-full" media="(min-width: 768px) and (max-width: 1023px)" srcset="/images/bg_tablet.png" />
       
         <!-- Для десктопов (по умолчанию) -->
-        <source media="(min-width: 1024px)" srcset="/images/bg_desk.png" />
+        <source class="w-full h-full" media="(min-width: 1024px)" srcset="/images/bg_desk.png" />
       
         <!-- Fallback для старых браузеров -->
         <img
@@ -63,7 +63,7 @@
     </section>
 
 
-    
+
     <script>
         // Начальное время: 1 час 13 минут 41 секунда → в секундах
         let totalSeconds = 1 * 3600 + 13 * 60 + 41; // = 4421 секунд
