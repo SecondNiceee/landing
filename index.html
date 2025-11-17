@@ -57,10 +57,44 @@
             </button>   
             <div class="flex items gap-4">
                 <img src="images/icon_desk.svg" alt="Timer">
-                <p class="timer-text">1:13:41</p>
+                <p id="countdown-timer" class="timer-text">1:13:41</p>
             </div>
         </div>
     </section>
 
+
+    
+    <script>
+        // Начальное время: 1 час 13 минут 41 секунда → в секундах
+        let totalSeconds = 1 * 3600 + 13 * 60 + 41; // = 4421 секунд
+      
+        function formatTime(seconds) {
+          const hrs = Math.floor(seconds / 3600);
+          const mins = Math.floor((seconds % 3600) / 60);
+          const secs = seconds % 60;
+          return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+      
+        function updateTimer() {
+          if (totalSeconds <= 0) {
+            document.getElementById('countdown-timer').textContent = '0:00:00';
+            return;
+          }
+      
+          document.getElementById('countdown-timer').textContent = formatTime(totalSeconds);
+          totalSeconds--;
+        }
+      
+        // Обновляем сразу при загрузке
+        updateTimer();
+      
+        // Запускаем таймер каждую секунду
+        const countdownInterval = setInterval(() => {
+          updateTimer();
+          if (totalSeconds < 0) {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+      </script>
 </body>
 </html>
